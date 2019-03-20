@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quanlysp</title>
+</head>
+<body>
+<button onclick="add()">Thêm sản phẩm</button>
+<button onclick="edit()">Sửa tên sản phẩm</button>
+<button onclick="del()">Xóa sản phẩm</button>
+<br>
+<h4>Danh sách sản phẩm: </h4>
+<div id="danhsach"></div>
+<script>
+    let products = ['Oreo', 'Milo', 'Ovaltine', 'Sunsilk', 'Dove',
+    'Nivea', 'Midea', 'Hoaphat', 'Sony', 'Nokia', 'Iphone', 'Aquafina'];
+    // for (i = 0; i < products.length; i++) {
+    //     // document.write((i+1) + '. ' + products[i] + '</br>')
+    //     document.getElementById('danhsach').innerHTML
+    //         = ((i+1) + '. ' + products[i] + '</br>');
+    // }
+    document.getElementById('danhsach').innerHTML = products;
+
+    function add() {
+        let a = prompt('Nhập tên sản phẩm');
+        products.push(a);
+        document.getElementById('danhsach').innerHTML = products;
+    }
+
+    function edit() {
+        let e = prompt('Nhập tên sản phẩm muốn thay đổi');
+        for (let i = 0; i < products.length; i++) {
+            if (products[i] == e) {
+                products[i] = prompt('Nhập tên sản phẩm mới');
+                document.getElementById('danhsach').innerHTML = products;
+            }
+        }
+    }
+    
+    function del() {
+        let d = prompt('Nhập tên sản phẩm bị xóa');
+        for (let i = 0; i < products.length; i++) {
+            if (products[i] == d) {
+                products.splice(i, 1)
+                document.getElementById('danhsach').innerHTML = products;
+            }
+        }
+    }
+</script>
+</body>
+</html>
